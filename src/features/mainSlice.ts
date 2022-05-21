@@ -16,6 +16,9 @@ export const mainSlice = createSlice({
   name: 'main',
   initialState,
   reducers: {
+    setRuntime: (state, action) => {
+      state.isRuntime = action.payload;
+    },
     addComponent: (state, action) => {
       let { name, index } = action.payload;
 
@@ -34,6 +37,6 @@ export const mainSlice = createSlice({
   }
 });
 
-export const { addComponent, removeComponent } = mainSlice.actions;
+export const { setRuntime, addComponent, removeComponent } = mainSlice.actions;
 
 export default mainSlice.reducer;

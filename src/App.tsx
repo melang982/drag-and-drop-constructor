@@ -6,6 +6,7 @@ import Operations from './components/calculator/Operations';
 import Equals from './components/calculator/Equals';
 import Empty from './components/Empty';
 import Divider from './components/Divider';
+import ModeToggle from './components/ModeToggle';
 import { useState } from 'react';
 import { RootState } from './app/store';
 import { useSelector, useDispatch } from 'react-redux';
@@ -117,6 +118,7 @@ const App: React.FC = () => {
         onDragLeave={onDragLeave}
         onDrop={onDrop}
       >
+        <ModeToggle margin="0 0 30px" />
         {selectedComponents.length === 0 && <Empty canDrop={canDrop > 0} />}
         {selectedComponents.length > 0 && (
           <div className="result__container" onDragOver={onDragOver}>

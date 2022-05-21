@@ -23,6 +23,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-top: 68px;
 }
 
 #result {
@@ -157,4 +158,33 @@ button:active {
 .result__wrapper {
   padding: 8px 0;
   user-select: none;
+}
+
+.toggle {
+  color: #4d5562;
+  display: flex;
+  padding: 1px;
+  height: 38px;
+  border-radius: var(--default-radius);
+  background: var(--gray);
+}
+
+.toggle__mode {
+  cursor: pointer;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 4px;
+  align-items: center;
+  border: 1px solid transparent;
+}
+
+.toggle__mode_active {
+  background: var(--white);
+  border-radius: 5px;
+  border: var(--default-border);
+}
+
+.toggle__mode_active path {
+  stroke: var(--main);
 }
