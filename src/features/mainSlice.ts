@@ -17,11 +17,23 @@ export const mainSlice = createSlice({
   initialState,
   reducers: {
     addComponent: (state, action) => {
-      state.isRuntime = false;
+      let { name, index } = action.payload;
+
+      const oldIndex = state.selectedComponents.findIndex((x) => x === name);
+      if (oldIndex > -1) {
+        if (oldIndex === index) return;
+        state.selectedComponents.splice(oldIndex, 1); //remove old component
+        if (oldIndex < index) index--;
+      }
+
+      state.selectedComponents.splice(index, 0, name);
+    },
+    removeComponent: (state, action) => {
+      state.selectedComponents = state.selectedComponents.filter((x) => x !== action.payload);
     }
   }
 });
 
-export const { addComponent } = mainSlice.actions;
+export const { addComponent, removeComponent } = mainSlice.actions;
 
 export default mainSlice.reducer;

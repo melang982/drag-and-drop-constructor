@@ -21,17 +21,11 @@ export const calculatorSlice = createSlice({
     pressNumber: (state, action) => {
       if (state.operation) {
         if (parseInt(state.secondValue + action.payload) > Number.MAX_SAFE_INTEGER) return;
-        state.secondValue = (state.secondValue + action.payload).replace(
-          /^(?:0+(?=[1-9])|0+(?=0$))/gm,
-          ''
-        ); //remove leading zeroes
+        state.secondValue = (state.secondValue + action.payload).replace(/^(?:0+(?=[1-9])|0+(?=0$))/gm, ''); //remove leading zeroes
         state.displayedValue = state.secondValue;
       } else {
         if (parseInt(state.firstValue + action.payload) > Number.MAX_SAFE_INTEGER) return;
-        state.firstValue = (state.firstValue + action.payload).replace(
-          /^(?:0+(?=[1-9])|0+(?=0$))/gm,
-          ''
-        );
+        state.firstValue = (state.firstValue + action.payload).replace(/^(?:0+(?=[1-9])|0+(?=0$))/gm, '');
         state.displayedValue = state.firstValue;
       }
     },
