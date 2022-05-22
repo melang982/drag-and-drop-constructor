@@ -1,6 +1,4 @@
-import React from 'react';
-
-const IconAddComponent: React.FC = () => {
+const IconAddComponent = () => {
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M18.7778 1V5.44444" stroke="black" strokeWidth="2" strokeLinecap="round" />
