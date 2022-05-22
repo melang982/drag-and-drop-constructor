@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { ReducerWithInitialState } from '@reduxjs/toolkit/dist/createReducer';
 
 export interface CalculatorState {
   displayedValue: string;
@@ -18,6 +19,7 @@ export const calculatorSlice = createSlice({
   name: 'calculator',
   initialState,
   reducers: {
+    reset: () => initialState,
     pressNumber: (state, action) => {
       if (state.operation) {
         if (parseInt(state.secondValue + action.payload) > Number.MAX_SAFE_INTEGER) return;
@@ -45,15 +47,15 @@ export const calculatorSlice = createSlice({
           state.displayedValue = (val1 - val2).toString();
           break;
         case 'x':
-          state.displayedValue = (val1 * val2).toString();
+          state.displayedValue = (val1 * val2).toPrecision(15).replace(/0+$/, '');
           break;
         case '/':
           if (val2 === 0) state.displayedValue = 'Не определено';
-          else state.displayedValue = (val1 / val2).toString();
+          else state.displayedValue = (val1 / val2).toPrecision(15).replace(/0+$/, '');
           break;
       }
 
-      state.displayedValue = state.displayedValue.toString().replace('.', ',');
+      state.displayedValue = state.displayedValue.replace('.', ',');
       state.firstValue = '0';
       state.secondValue = '0';
       state.operation = '';
@@ -61,6 +63,6 @@ export const calculatorSlice = createSlice({
   }
 });
 
-export const { pressNumber, pressOperation, pressEquals } = calculatorSlice.actions;
+export const { reset, pressNumber, pressOperation, pressEquals } = calculatorSlice.actions;
 
 export default calculatorSlice.reducer;

@@ -1,9 +1,8 @@
-import React from 'react';
 import Button from '../Button';
 import { useDispatch } from 'react-redux';
 import { pressOperation } from '../../features/calculatorSlice';
 
-const Operations: React.FC = () => {
+const Operations = () => {
   const dispatch = useDispatch();
   return (
     <div style={{ display: 'flex', gap: '8px' }}>

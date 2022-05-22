@@ -1,7 +1,6 @@
-import React from 'react';
 import NumberButton from './NumberButton';
 
-const Numbers: React.FC = () => {
+const Numbers = () => {
   return (
     <div
       style={{

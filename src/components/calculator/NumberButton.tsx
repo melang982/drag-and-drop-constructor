@@ -1,14 +1,13 @@
-import React from 'react';
 import Button from '../Button';
 import { useDispatch } from 'react-redux';
 import { pressNumber } from '../../features/calculatorSlice';
 
-interface Props {
+interface NumberButtonProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
 }
 
-const NumberButton: React.FC<Props> = ({ children, style }) => {
+const NumberButton = ({ children, style }: NumberButtonProps) => {
   const dispatch = useDispatch();
   return (
     <Button style={style} onClick={() => dispatch(pressNumber(children))}>

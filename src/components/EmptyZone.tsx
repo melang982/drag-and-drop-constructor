@@ -1,11 +1,10 @@
-import React from 'react';
 import IconAddComponent from './icons/IconAddComponent';
 
-interface Props {
+interface EmptyZoneProps {
   canDrop?: boolean;
 }
 
-const Empty: React.FC<Props> = ({ canDrop }) => {
+const EmptyZone = ({ canDrop }: EmptyZoneProps) => {
   return (
     <div className={'empty' + (canDrop ? ' empty-candrop' : '')}>
       <IconAddComponent />
@@ -16,4 +15,4 @@ const Empty: React.FC<Props> = ({ canDrop }) => {
   );
 };
 
-export default Empty;
+export default EmptyZone;

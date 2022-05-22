@@ -1,13 +1,11 @@
-import React from 'react';
-
-interface Props {
+interface ButtonProps {
   children?: React.ReactNode;
   onClick?: React.MouseEventHandler;
   style?: React.CSSProperties;
   variant?: string;
 }
 
-const Button: React.FC<Props> = ({ children, onClick, style, variant }) => {
+const Button = ({ children, onClick, style, variant }: ButtonProps) => {
   return (
     <button
       style={style}

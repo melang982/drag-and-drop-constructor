@@ -1,10 +1,9 @@
-import React from 'react';
 import './App.css';
 import Display from './components/calculator/Display';
 import Numbers from './components/calculator/Numbers';
 import Operations from './components/calculator/Operations';
 import Equals from './components/calculator/Equals';
-import Empty from './components/Empty';
+import EmptyZone from './components/EmptyZone';
 import Divider from './components/Divider';
 import ModeToggle from './components/ModeToggle';
 import { useState } from 'react';
@@ -12,7 +11,7 @@ import { RootState } from './app/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { addComponent, removeComponent } from './features/mainSlice';
 
-const App: React.FC = () => {
+const App = () => {
   const dispatch = useDispatch();
   const isRuntime = useSelector((state: RootState) => state.main.isRuntime);
   const availableComponents = useSelector((state: RootState) => state.main.availableComponents);
@@ -119,7 +118,7 @@ const App: React.FC = () => {
         onDrop={onDrop}
       >
         <ModeToggle margin="0 0 30px" />
-        {selectedComponents.length === 0 && <Empty canDrop={canDrop > 0} />}
+        {selectedComponents.length === 0 && <EmptyZone canDrop={canDrop > 0} />}
         {selectedComponents.length > 0 && (
           <div className="result__container" onDragOver={onDragOver}>
             {selectedComponents.map((name, index) => SelectedComponent(name, index))}
